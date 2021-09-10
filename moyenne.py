@@ -1,9 +1,9 @@
-def find_average(values):
+def find_average(values) -> float:
     result = 0
     for v in values:
-        #resultat faux voir le tuto pycharm pour correction
         result += v
-    return result
+    return result / len(values)
 
 
-print("AVERAGE", find_average([5,6, 7, 8]))
+print("average", find_average([5, 6, 7, 8]))
+
