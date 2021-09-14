@@ -7,9 +7,10 @@
 # On simplifie et si c'est complexe on split en fonctions plus petites
 
 position = 0
-
+# position est hors de ma fonction
+# move_player() # rien ne se passe vu que ma fonction n'est pas encore définie du coup le programme crash
 def move_player():
-    global position
+    global position # Je dois donc utiliser global si je veux acceder à position
     position += 1
     print(position)
 
@@ -20,3 +21,4 @@ move_player()
 move_player()
 move_player()
 move_player()
+ 
