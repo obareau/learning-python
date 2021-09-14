@@ -1,4 +1,4 @@
-# values // Refrences
+# values // References
 class GameObject:
     # blueprint est défini ici
     def __init__(self, name, x_pos, y_pos) :
