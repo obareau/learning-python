@@ -2,7 +2,7 @@ position = 0
 
 def move_player(position, by_amount):
 # si j'ai des paramétres il doivent avoir au moins 1 valeur
-# Commome position est une param
+# Comme position est un param
 # Pas besoin d'appeler la var position grace à global (vf functions.py)
     position += by_amount
     print(position)
