@@ -13,7 +13,8 @@ def move_player():
     global position # Je dois donc utiliser global si je veux acceder à position
     position += 1
     print(position)
-
+    # x_position = position
+# print(x_position) x_position n'est pas accessible d'ailleur elle n'est pas dispo à la complétion   
 # Rien ne se passe tant que j'apelle pas ma fonction
 move_player()
 # Et je peux l'appeler autant de fois que je veux (Captain Obvious !!!)
