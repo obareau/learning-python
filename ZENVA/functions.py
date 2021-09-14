@@ -1,4 +1,4 @@
-# Les fonctions sont un bon mye, de répéter du code
+# Les fonctions sont un bon moyen de répéter du code
 # Ca permet aussi de controller où et quand notre code
 # S'éxécute
 # Les fonces fonctions acceptent des valeurs en entrée
