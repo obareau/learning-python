@@ -4,7 +4,7 @@ class GameObject:
         self.name = name
         self.x_pos = x_pos
         self.y_pos = y_pos
-    # Fin idu blueprint
+    # Fin du blueprint
     
 game_object = GameObject ("Enemy", 1, 2)
 # On accéde à la variable name de l'objet game_objet
