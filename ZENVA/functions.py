@@ -15,7 +15,7 @@ def move_player():
 
 # Rien ne se passe tant que j'apelle pas ma fonction
 move_player()
-# Et je oeux l'appeler autant de fois que je veux (Captain Obvious !!!)
+# Et je peux l'appeler autant de fois que je veux (Captain Obvious !!!)
 move_player()
 move_player()
 move_player()
