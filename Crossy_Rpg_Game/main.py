@@ -14,7 +14,9 @@ game_window = pygame.display.set_mode((width,height))
 
 clock = pygame.time.Clock() # on crée une instance de Clock du module pygame.time
 
-background_image = pygame.image.load("Pygame_Rpg/Crossy_Rpg_Game/assets/background.png")
+background_image = pygame.image.load("/Crossy_Rpg_Game/assets/background.png") 
+# pb de chemin /Users/macuser/Documents/PYTHON-OLIVIER/learning-python/Pygame_Rpg/Crossy_Rpg_Game/main.py
+# ne fonctionne pas dans le shell avec Pygame_Rpg/Crossy_Rpg_Game/assets/background.png
 background = pygame.transform.scale(background_image,(width,height))
 # Game loop
 def run_game_loop(): # avec une fonction on break tout le flow !
