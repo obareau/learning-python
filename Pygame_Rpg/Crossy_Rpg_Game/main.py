@@ -30,6 +30,8 @@ def run_game_loop(): # avec une fonction on break tout le flow !
 
         clock.tick(60) # on update 60 fois par seconde
 
+# /Game loop
+
 run_game_loop()
 
 pygame.quit()
