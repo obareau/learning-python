@@ -15,6 +15,7 @@ game_window = pygame.display.set_mode((width,height))
 clock = pygame.time.Clock() # on crée une instance de Clock du module pygame.time
 
 background_image = pygame.image.load("assets/background.png")
+pygame.transform.scale(background_image,(width,height))
 # Game loop
 def run_game_loop(): # avec une fonction on break tout le flow !
     while True:
