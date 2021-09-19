@@ -6,6 +6,7 @@ pygame.init()
 # Game code
 # on creé la fenétre de jeu
 # C'est mieux de définir notre tuple pour la taille grâce à des variables
+# Plutoit que de hardcoder comme un porc
 width = 800
 height = 800
 white_colour = (255,255,255) # value en rgb
