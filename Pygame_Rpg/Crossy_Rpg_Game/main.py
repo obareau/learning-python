@@ -13,11 +13,16 @@ white_colour = (255,255,255) # value en rgb
 game_window = pygame.display.set_mode((width,height))
 
 clock = pygame.time.Clock() # on crée une instance de Clock du module pygame.time
+
+background_image = pygame.image.load("assets/background.png")
 # Game loop
 def run_game_loop(): # avec une fonction on break tout le flow !
     while True:
         # on veut remplir la window de blanc tant que le joeur quitte pas
         game_window.fill((white_colour))
+        # on affiche l'image de fond grace à la fonction blit
+        game_window.blit(background_image, (0,0)) # l etuple (x,y) = (0,0)= top righ corner
+        # on blit avant de tout rafraichir
         pygame.display.update()  
         
         # Handle events
