@@ -14,15 +14,15 @@ game_window = pygame.display.set_mode((width,height))
 
 clock = pygame.time.Clock() # on crée une instance de Clock du module pygame.time
 
-background_image = pygame.image.load("assets/background.png")
-pygame.transform.scale(background_image,(width,height))
+background_image = pygame.image.load("Pygame_Rpg/Crossy_Rpg_Game/assets/background.png")
+background = pygame.transform.scale(background_image,(width,height))
 # Game loop
 def run_game_loop(): # avec une fonction on break tout le flow !
     while True:
         # on veut remplir la window de blanc tant que le joeur quitte pas
         game_window.fill((white_colour))
         # on affiche l'image de fond grace à la fonction blit
-        game_window.blit(background_image, (0,0)) # le tuple (x,y) = (0,0)= top left corner
+        game_window.blit(background, (0,0)) # le tuple (x,y) = (0,0)= top left corner
         # on blit avant de tout rafraichir
         pygame.display.update()  
         
