@@ -31,7 +31,7 @@ def run_game_loop(): # avec une fonction on break tout le flow !
         game_window.blit(background, (0,0)) # le tuple (x,y) = (0,0)= top left corner
         # on blit avant de tout rafraichir
         # on affiche le trésor
-        game_window.blit(treasure; (375, 50))
+        game_window.blit(treasure, (375, 50))
         pygame.display.update()  
         
         # Handle events
