@@ -8,9 +8,21 @@ pygame.init()
 width = 800
 height = 800
 white_colour = (255,255,255) # value en rgb
+# on garde la window hors du loop afin de ne pas en générer indéfiniment
 game_window = pygame.display.set_mode((width,height))
-game_window.fill((white_colour))
-pygame.display.update()  
+
+clock = pygame.time.Clock() # on crée une instance de Clock du module pygame.time
+# Game loop
+while True:
+    # on veut remplir la window de blanc tant que le joeur quitte pas
+    game_window.fill((white_colour))
+    pygame.display.update()  
+
+    # Handle events
+    # Execute logic
+    # Update display
+
+    clock.tick(60) # on update 60 fois par seconde
 
 pygame.quit()
 quit()
