@@ -35,19 +35,16 @@ class Game:
             pygame.display.update() 
             
         # Game loop
-    def run_game_loop(self): # avec une fonction on break tout le flow !
-        while True:
+        def run_game_loop(self): # avec une fonction on break tout le flow !
+            while True:
             
-            
-            pygame.display.update()  
-            
-            # Handle events
-            events = pygame.event.get()
-            for event in events:
-                if event.type == pygame.QUIT:
-                    return
-            # Execute logic
-            # Update display
+                # Handle events
+                events = pygame.event.get()
+                for event in events:
+                    if event.type == pygame.QUIT:
+                        return
+                # Execute logic
+                # Update display
             self.draw_objects()
             self.clock.tick(60) # on update 60 fois par seconde
 
