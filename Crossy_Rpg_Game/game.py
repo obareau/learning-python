@@ -6,7 +6,7 @@ class Game:
     def __init__(self):
         # C'est mieux de définir notre tuple pour la taille grâce à des variables
         # Plutot que de hardcoder comme un porc
-        # avec .self ca devient une propriété de Game
+        # avec .self ca devient une propriété propre à un objet de la classe Game
         self.width = 800
         self.height = 800
         self.white_colour = (255,255,255) # value en rgb
