@@ -19,7 +19,7 @@ class Game:
         
         self.treasure = GameObject(375, 50, 50,50 , "Crossy_Rpg_Game/assets/treasure.png")
         
-        self.player = Player((375, 700, 50, 50 "Crossy_Rpg_Game/assets/player.png" , 10)
+        self.player = Player((375, 700, 50, 50, "Crossy_Rpg_Game/assets/player.png" , 10)
         
         
     def draw_objects(self):
