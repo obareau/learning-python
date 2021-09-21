@@ -1,5 +1,7 @@
 # This Python file uses the following encoding: utf-8
 import pygame
+from gameObject import GameObject
+
 
 class Game:
     
@@ -14,23 +16,25 @@ class Game:
         self.game_window = pygame.display.set_mode((self.width,self.height))
 
         self.clock = pygame.time.Clock() # on crée une instance de Clock du module pygame.time
-
-        background_image = pygame.image.load("Crossy_Rpg_Game/assets/background.png") 
-        # pb de chemin /Users/macuser/Documents/PYTHON-OLIVIER/learning-python/Pygame_Rpg/Crossy_Rpg_Game/main.py
-        # ne fonctionne pas dans le shell avec Pygame_Rpg/Crossy_Rpg_Game/assets/background.png
-        self.background = pygame.transform.scale(background_image,(self.width,self.height))
-
+        
+        self.background = GameObject(0,0, self.width, self.height, "Crossy_Rpg_Game/assets/background.png")
+        # background_image = pygame.image.load("Crossy_Rpg_Game/assets/background.png") 
+        # # pb de chemin /Users/macuser/Documents/PYTHON-OLIVIER/learning-python/Pygame_Rpg/Crossy_Rpg_Game/main.py
+        # # ne fonctionne pas dans le shell avec Pygame_Rpg/Crossy_Rpg_Game/assets/background.png
+        # self.background = pygame.transform.scale(background_image,(self.width,self.height))
+        self.treasure = GameObject(375, 50, self.width, self.height, "Crossy_Rpg_Game/assets/treasure.png")
         treasure_image = pygame.image.load("Crossy_Rpg_Game/assets/treasure.png")
+        
         self.treasure = pygame.transform.scale(treasure_image, (50, 50))
         
     def draw_objects(self):
         # on veut remplir la window de blanc tant que le joeur quitte pas
         self.game_window.fill((self.white_colour))
         # on affiche l'image de fond grace à la fonction blit
-        self.game_window.blit(self.background, (0,0)) # le tuple (x,y) = (0,0)= top left corner
+        self.game_window.blit(self.background.image, (self.background.x, self.background.y))
         # on blit avant de tout rafraichir
         # on affiche le trésor
-        self.game_window.blit(self.treasure, (375, 50))
+        self.game_window.blit(self.treasure.image, (self.treasure.x, self.treasure.y))
     
         pygame.display.update() 
             
