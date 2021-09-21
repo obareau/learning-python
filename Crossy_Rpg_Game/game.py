@@ -19,7 +19,7 @@ class Game:
         
         self.treasure = GameObject(375, 50, 50,50, "Crossy_Rpg_Game/assets/treasure.png")
         
-        self.player = Player((375, 700, 50, 50, "Crossy_Rpg_Game/assets/player.png", 10)
+        self.player = Player(375, 700, 50, 50, "Crossy_Rpg_Game/assets/player.png", 10) # maybe add a random player speed ?
         
         
     def draw_objects(self):
@@ -28,7 +28,7 @@ class Game:
         # on affiche l'image de fond grace à la fonction blit
         self.game_window.blit(self.background.image, (self.background.x, self.background.y))
         self.game_window.blit(self.treasure.image, (self.treasure.x, self.treasure.y))
-        # self.game_window.blit(self.player.image, (self.player.x, self.player.y))
+        self.game_window.blit(self.player.image, (self.player.x, self.player.y))
         
     
         pygame.display.update() 
