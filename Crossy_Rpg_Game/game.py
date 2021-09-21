@@ -35,6 +35,8 @@ class Game:
             
     # Game loop
     def run_game_loop(self): # avec une fonction on break tout le flow !
+        player_direction = 0
+        
         while True:
         
             # Handle events
@@ -42,7 +44,15 @@ class Game:
             for event in events:
                 if event.type == pygame.QUIT:
                     return
+                elif event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_UP:
+                        # move player up 
+                        player_direction = -1 #800 is bottom 0 is top so we need to decrease to go  up
+                    elif event.key == pygame.K_DOWN:
+                        # move player down
+                        player_direction = 1 # we count backward remember !!!
             # Execute logic
+            self.player.move(player_direction)
             # Update display
             self.draw_objects()
             self.clock.tick(60) # on update 60 fois par seconde
