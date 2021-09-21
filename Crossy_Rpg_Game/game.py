@@ -17,9 +17,9 @@ class Game:
         
         self.background = GameObject(0,0, self.width, self.height, "Crossy_Rpg_Game/assets/background.png")
         
-        self.treasure = GameObject(375, 50, 50,50 , "Crossy_Rpg_Game/assets/treasure.png")
+        self.treasure = GameObject(375, 50, 50,50, "Crossy_Rpg_Game/assets/treasure.png")
         
-        self.player = Player((375, 700, 50, 50 ,"Crossy_Rpg_Game/assets/player.png", 10)
+        self.player = Player((375, 700, 50, 50, "Crossy_Rpg_Game/assets/player.png", 10)
         
         
     def draw_objects(self):
@@ -27,10 +27,8 @@ class Game:
         self.game_window.fill((self.white_colour))
         # on affiche l'image de fond grace à la fonction blit
         self.game_window.blit(self.background.image, (self.background.x, self.background.y))
-        # on blit avant de tout rafraichir
-        # on affiche le trésor
         self.game_window.blit(self.treasure.image, (self.treasure.x, self.treasure.y))
-        self.game_window.blit(self.player.image, (self.player.x, self.player.y))
+        # self.game_window.blit(self.player.image, (self.player.x, self.player.y))
         
     
         pygame.display.update() 
