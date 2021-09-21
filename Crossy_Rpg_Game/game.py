@@ -1,7 +1,7 @@
 # This Python file uses the following encoding: utf-8
 import pygame
 from gameObject import GameObject
-
+from player import Player
 
 class Game:
     
@@ -19,6 +19,8 @@ class Game:
         
         self.treasure = GameObject(375, 50, 50,50 , "Crossy_Rpg_Game/assets/treasure.png")
         
+        self.player = Player((375, 700, 50, 50 "Crossy_Rpg_Game/assets/player.png" , 10)
+        
         
     def draw_objects(self):
         # on veut remplir la window de blanc tant que le joeur quitte pas
@@ -28,6 +30,8 @@ class Game:
         # on blit avant de tout rafraichir
         # on affiche le trésor
         self.game_window.blit(self.treasure.image, (self.treasure.x, self.treasure.y))
+        self.game_window.blit(self.player.image, (self.player.x, self.player.y))
+        
     
         pygame.display.update() 
             
