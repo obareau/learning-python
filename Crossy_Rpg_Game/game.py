@@ -15,12 +15,12 @@ class Game:
 
         self.clock = pygame.time.Clock() # on crée une instance de Clock du module pygame.time
 
-        background_image = pygame.image.load("assets/background.png") 
+        background_image = pygame.image.load("Crossy_Rpg_Game/assets/background.png") 
         # pb de chemin /Users/macuser/Documents/PYTHON-OLIVIER/learning-python/Pygame_Rpg/Crossy_Rpg_Game/main.py
         # ne fonctionne pas dans le shell avec Pygame_Rpg/Crossy_Rpg_Game/assets/background.png
         self.background = pygame.transform.scale(background_image,(self.width,self.height))
 
-        treasure_image = pygame.image.load("assets/treasure.png")
+        treasure_image = pygame.image.load("Crossy_Rpg_Game/assets/treasure.png")
         self.treasure = pygame.transform.scale(treasure_image, (50, 50))
         
     def draw_objects(self):
