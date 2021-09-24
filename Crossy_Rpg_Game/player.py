@@ -8,7 +8,11 @@ class Player(GameObject):
         
         self.speed = speed
         
-    def move(self, direction):
+    def move(self, direction, max_height):
+        if self.y >= max_height or self.y y == 0: #check boudaries 
+            return
+        
+        
         self.y += (direction * self.speed)    
            
                     
