@@ -23,7 +23,15 @@ class Game:
         self.treasure = GameObject(375, 50, 50,50, "Crossy_Rpg_Game/assets/treasure.png")
         
         self.player = Player(375, 700, 50, 50, "Crossy_Rpg_Game/assets/player.png", 10) # maybe add a random player speed ?
-        self.enemy = Enemy(50,600, 50, 50, "Crossy_Rpg_Game/assets/enemy.png", 5)
+        
+        # Let's create Enemies 
+        self.enemies = [
+            Enemy(0,600, 50, 50, "Crossy_Rpg_Game/assets/enemy.png", 5),
+            Enemy(750,400, 50, 50, "Crossy_Rpg_Game/assets/enemy.png", 5),
+            Enemy(0,200, 50, 50, "Crossy_Rpg_Game/assets/enemy.png", 5),
+        ]
+        
+       
         
     # Display
         
@@ -34,21 +42,37 @@ class Game:
         self.game_window.blit(self.background.image, (self.background.x, self.background.y))
         self.game_window.blit(self.treasure.image, (self.treasure.x, self.treasure.y))
         self.game_window.blit(self.player.image, (self.player.x, self.player.y))
-        self.game_window.blit(self.enemy.image, (self.enemy.x, self.enemy.y))
+        
+        for enemy in self.enemies:
+            self.game_window.blit(enemy.image, (enemy.x, enemy.y ))
         
     
         pygame.display.update() 
     
-    def detect_collision(self, object_1, object_2):
-        if object_1.y > (object_2.y + object_2.height):
-            return False
-        elif (object_1.y + object_1.height) < object_2.y:
-            return False
+    def move_objects (self, player_direction):
+        self.player.move(player_direction, self.height)
+        for enemy in self.enemies: 
+            enemy.move(self.width) # Enemy movement will be constant 
         
-        if object_1.x > (object_2.x + object_2.width):
+    
+    def check_if_collided(self):
+        for enemy in self.enemies:
+            if self.detect_collision(self.player, enemy):
+                return True
+            if self.detect_collision(self.player, self.treasure):
+                return True
             return False
-        elif (object_1.x + object_1.width) < object_2.x:
-            return False
+    
+    def detect_collision(self, object_1, object_2):
+        # if object_1.y > (object_2.y + object_2.height):
+        #     return False
+        # elif (object_1.y + object_1.height) < object_2.y:
+        #     return False
+        
+        # if object_1.x > (object_2.x + object_2.width):
+        #     return False
+        # elif (object_1.x + object_1.width) < object_2.x:
+        #     return False
         
         return True    
         
@@ -72,15 +96,12 @@ class Game:
                         # move player down
                         player_direction = 1 # We count backward remember !!!
             # Execute logic
-            self.player.move(player_direction, self.height)
-            self.enemy.move(self.width) # Enemy movement will be constant 
+            self.move_objects(player_direction)
             # Update display
             self.draw_objects()
             
             # Detect collisions
-            if self.detect_collision(self.player, self.enemy):
-                return
-            elif self.detect_collision(self.player, self.treasure):
+            if self.check_if_collided():
                 return
             
             
