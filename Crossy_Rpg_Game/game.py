@@ -4,8 +4,10 @@ from gameObject import GameObject
 from player import Player
 from enemy import Enemy
 
+
 class Game:
     
+    # Create
     def __init__(self):
         
         self.width = 800
@@ -21,7 +23,9 @@ class Game:
         self.treasure = GameObject(375, 50, 50,50, "Crossy_Rpg_Game/assets/treasure.png")
         
         self.player = Player(375, 700, 50, 50, "Crossy_Rpg_Game/assets/player.png", 10) # maybe add a random player speed ?
-        self.enemy = Enemy(50,600, 50, 50, "Crossy_Rpg_Game/assets/enemy.png", 10)
+        self.enemy = Enemy(50,600, 50, 50, "Crossy_Rpg_Game/assets/enemy.png", 5)
+        
+    # Display
         
     def draw_objects(self):
         # on veut remplir la window de blanc tant que le joeur quitte pas
@@ -34,8 +38,22 @@ class Game:
         
     
         pygame.display.update() 
-            
-    # Game loop
+    
+    def detect_collision(self, object_1, object_2):
+        if object_1.y > (object_2.y + object_2.height):
+            return False
+        elif (object_1.y + object_1.height) < object_2.y:
+            return False
+        
+        if object_1.x > (object_2.x + object_2.width):
+            return False
+        elif (object_1.x + object_1.width) < object_2.x:
+            return False
+        
+        return True    
+        
+    # Moove        
+    # Game loop`
     def run_game_loop(self): # avec une fonction on break tout le flow !
         player_direction = 0
         
@@ -58,6 +76,14 @@ class Game:
             self.enemy.move(self.width) # Enemy movement will be constant 
             # Update display
             self.draw_objects()
+            
+            # Detect collisions
+            if self.detect_collision(self.player, self.enemy):
+                return
+            elif self.detect_collision(self.player, self.treasure):
+                return
+            
+            
             self.clock.tick(60) # on update 60 fois par seconde
 
     # /Game loop
