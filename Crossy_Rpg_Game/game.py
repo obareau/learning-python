@@ -21,7 +21,7 @@ class Game:
         self.treasure = GameObject(375, 50, 50,50, "Crossy_Rpg_Game/assets/treasure.png")
         
         self.player = Player(375, 700, 50, 50, "Crossy_Rpg_Game/assets/player.png", 10) # maybe add a random player speed ?
-        self.enemy = Enemy(50,600, 50, 50 "Crossy_Rpg_Game/assets/enemy.png", 10)
+        self.enemy = Enemy(50,600, 50, 50, "Crossy_Rpg_Game/assets/enemy.png", 10)
         
     def draw_objects(self):
         # on veut remplir la window de blanc tant que le joeur quitte pas
