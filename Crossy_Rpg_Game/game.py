@@ -52,7 +52,7 @@ class Game:
                         # move player down
                         player_direction = 1 # we count backward remember !!!
             # Execute logic
-            self.player.move(player_direction)
+            self.player.move(player_direction, self.height)
             # Update display
             self.draw_objects()
             self.clock.tick(60) # on update 60 fois par seconde
