@@ -39,7 +39,7 @@ class Game:
         elif self.level >= 2.0:
             self.enemies = [
                 Enemy(0, 600, 50, 50, 'Crossy_Rpg_Game/assets/enemy.png', speed),
-                Enemy(750, 400, 50, 50, 'Crossy_Rpg_Game/Crossy_Rpg_Game/assets/enemy.png', speed),
+                Enemy(750, 400, 50, 50, 'Crossy_Rpg_Game/assets/enemy.png', speed),
             ]
         else:
             self.enemies = [
