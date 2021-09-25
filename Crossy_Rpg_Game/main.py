@@ -14,6 +14,5 @@ game.run_game_loop()
 
 
 
-
 pygame.quit()
 # quit() pas indispensable ?

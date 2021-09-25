@@ -26,9 +26,9 @@ class Game:
         
         # Let's create Enemies 
         self.enemies = [
-            Enemy(0,600, 50, 50, "Crossy_Rpg_Game/assets/enemy.png", 5),
+            Enemy(0,600, 50, 50, "Crossy_Rpg_Game/assets/enemy.png", 3),
             Enemy(750,400, 50, 50, "Crossy_Rpg_Game/assets/enemy.png", 5),
-            Enemy(0,200, 50, 50, "Crossy_Rpg_Game/assets/enemy.png", 5),
+            Enemy(0,200, 50, 50, "Crossy_Rpg_Game/assets/enemy.png", 7),
         ]
         
        
@@ -64,15 +64,15 @@ class Game:
             return False
     
     def detect_collision(self, object_1, object_2):
-        # if object_1.y > (object_2.y + object_2.height):
-        #     return False
-        # elif (object_1.y + object_1.height) < object_2.y:
-        #     return False
+        if object_1.y > (object_2.y + object_2.height):
+            return False
+        elif (object_1.y + object_1.height) < object_2.y:
+            return False
         
-        # if object_1.x > (object_2.x + object_2.width):
-        #     return False
-        # elif (object_1.x + object_1.width) < object_2.x:
-        #     return False
+        if object_1.x > (object_2.x + object_2.width):
+            return False
+        elif (object_1.x + object_1.width) < object_2.x:
+            return False
         
         return True    
         
