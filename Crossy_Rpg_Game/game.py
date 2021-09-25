@@ -3,6 +3,7 @@ import pygame
 from gameObject import GameObject
 from player import Player
 from enemy import Enemy
+from random import randint
 
 class Game:
 
@@ -28,7 +29,7 @@ class Game:
 
         self.player = Player(375, 700, 50, 50, 'Crossy_Rpg_Game/assets/player.png', 10)
 
-        speed = 5 + (self.level * 5)
+        speed = 3 + (self.level * 3) # replace 5 by 3 it's a lot easier 
 
         if self.level >= 4.0:
             self.enemies = [
@@ -38,12 +39,12 @@ class Game:
             ]
         elif self.level >= 2.0:
             self.enemies = [
-                Enemy(0, 600, 50, 50, 'Crossy_Rpg_Game/assets/enemy.png', speed),
+                Enemy(0, 600, 50, 50, 'Crossy_Rpg_Game/assets/enemy.png', speed/randint(1,9)),
                 Enemy(750, 400, 50, 50, 'Crossy_Rpg_Game/assets/enemy.png', speed),
             ]
         else:
             self.enemies = [
-                Enemy(0, 600, 50, 50, 'Crossy_Rpg_Game/assets/enemy.png', speed),
+                Enemy(0, randint(400,600), 50, 50, 'Crossy_Rpg_Game/assets/enemy.png', speed*randint(1,3)),
             ]
 
 
