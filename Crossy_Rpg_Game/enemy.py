@@ -1,20 +1,21 @@
-# This Python file uses the following encoding: utf-8
-from gameObject import GameObject 
-    
+from gameObject import GameObject
+
 class Enemy(GameObject):
-    
+
+
     def __init__(self, x, y, width, height, image_path, speed):
         super().__init__(x, y, width, height, image_path)
-        
+
         self.speed = speed
-        
+
+    
     def move(self, max_width):
         if self.x <= 0:
-            self.speed = abs(self.speed) # absolute value is always positive
+            self.speed = abs(self.speed)
         elif self.x >= max_width - self.width:
-            self.speed = -self.speed #we consider the opposite of self.speed
-        
+            self.speed = -self.speed
+
         self.x += self.speed
         
-           
-                    
+
+
