@@ -5,53 +5,70 @@ from player import Player
 from enemy import Enemy
 from random import randint
 
+
 class Game:
-
-
     def __init__(self):
         self.width = 800
         self.height = 800
         self.white_colour = (255, 255, 255)
 
-        self.game_window = pygame.display.set_mode((self.width,self.height))
+        self.game_window = pygame.display.set_mode((self.width, self.height))
 
         self.clock = pygame.time.Clock()
 
-        self.background = GameObject(0, 0, self.width, self.height, 'Crossy_Rpg_Game/assets/background.png')
-        self.treasure = GameObject(375, 50, 50, 50, 'Crossy_Rpg_Game/assets/treasure.png')
+        self.background = GameObject(
+            0, 0, self.width, self.height, "Crossy_Rpg_Game/assets/background.png"
+        )
+        self.treasure = GameObject(
+            375, 50, 50, 50, "Crossy_Rpg_Game/assets/treasure.png"
+        )
 
         self.level = 1.0
 
         self.reset_map()
 
-
     def reset_map(self):
 
-        self.player = Player(375, 700, 50, 50, 'Crossy_Rpg_Game/assets/player.png', 10)
+        self.player = Player(375, 700, 50, 50, "Crossy_Rpg_Game/assets/player.png", 10)
 
-        speed = 3 + (self.level * 3) # replace 5 by 3 it's a lot easier 
+        speed = 3 + (self.level * 3)  # replace 5 by 3 it's a lot easier
 
         if self.level >= 4.0:
             self.enemies = [
-                Enemy(0, 600, 50, 50, 'Crossy_Rpg_Game/assets/enemy.png', speed),
-                Enemy(750, 400, 50, 50, 'Crossy_Rpg_Game/assets/enemy.png', speed),
-                Enemy(0, 200, 50, 50, 'Crossy_Rpg_Game/assets/enemy.png', speed),
+                Enemy(0, 600, 50, 50, "Crossy_Rpg_Game/assets/enemy.png", speed),
+                Enemy(750, 400, 50, 50, "Crossy_Rpg_Game/assets/enemy.png", speed),
+                Enemy(0, 200, 50, 50, "Crossy_Rpg_Game/assets/enemy.png", speed),
             ]
         elif self.level >= 2.0:
             self.enemies = [
-                Enemy(0, 600, 50, 50, 'Crossy_Rpg_Game/assets/enemy.png', speed/randint(1,9)),
-                Enemy(750, 400, 50, 50, 'Crossy_Rpg_Game/assets/enemy.png', speed),
+                Enemy(
+                    0,
+                    600,
+                    50,
+                    50,
+                    "Crossy_Rpg_Game/assets/enemy.png",
+                    speed / randint(1, 9),
+                ),
+                Enemy(750, 400, 50, 50, "Crossy_Rpg_Game/assets/enemy.png", speed),
             ]
         else:
             self.enemies = [
-                Enemy(0, randint(400,600), 50, 50, 'Crossy_Rpg_Game/assets/enemy.png', speed*randint(1,3)),
+                Enemy(
+                    0,
+                    randint(400, 600),
+                    50,
+                    50,
+                    "Crossy_Rpg_Game/assets/enemy.png",
+                    speed * randint(1, 3),
+                ),
             ]
-
 
     def draw_objects(self):
         self.game_window.fill(self.white_colour)
 
-        self.game_window.blit(self.background.image, (self.background.x, self.background.y))
+        self.game_window.blit(
+            self.background.image, (self.background.x, self.background.y)
+        )
         self.game_window.blit(self.treasure.image, (self.treasure.x, self.treasure.y))
         self.game_window.blit(self.player.image, (self.player.x, self.player.y))
 
@@ -60,12 +77,10 @@ class Game:
 
         pygame.display.update()
 
-
     def move_objects(self, player_direction):
         self.player.move(player_direction, self.height)
         for enemy in self.enemies:
             enemy.move(self.width)
-
 
     def check_if_collided(self):
         for enemy in self.enemies:
@@ -76,7 +91,6 @@ class Game:
             self.level += 0.5
             return True
         return False
-
 
     def detect_collision(self, object_1, object_2):
         # if object_1.y > (object_2.y + object_2.height):
@@ -91,10 +105,14 @@ class Game:
 
         # return True
 
-        if object_1.y < (object_2.y + object_2.height) and (object_1.y + object_1.height) > object_2.y and object_1.x < (object_2.x + object_2.width) and (object_1.x + object_1.width) > object_2.x:
+        if (
+            object_1.y < (object_2.y + object_2.height)
+            and (object_1.y + object_1.height) > object_2.y
+            and object_1.x < (object_2.x + object_2.width)
+            and (object_1.x + object_1.width) > object_2.x
+        ):
             return True
         return False
-
 
     def run_game_loop(self):
         player_direction = 0
@@ -114,7 +132,6 @@ class Game:
                 elif event.type == pygame.KEYUP:
                     if event.key == pygame.K_UP or event.key == pygame.K_DOWN:
                         player_direction = 0
-                    
 
             # Execute logic
             self.move_objects(player_direction)

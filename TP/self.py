@@ -4,39 +4,42 @@
 
 #     Self is always pointing to Current Object.
 
-#it is clearly seen that self and obj is referring to the same object
+# it is clearly seen that self and obj is referring to the same object
+
 
 class check:
-	def __init__(self):
-		print("Address of self = ",id(self))
+    def __init__(self):
+        print("Address of self = ", id(self))
+
 
 obj = check()
-print("Address of class object = ",id(obj))
+print("Address of class object = ", id(obj))
 
 # this code is Contributed by Samyak Jain
 
 # Another Example of Using SELF:
-class car():
+class car:
     # init method or constructor
     def __init__(self, model, color, type):
         self.model = model
         self.color = color
-        self.type  = type
-         
+        self.type = type
+
     def show(self):
-        
-        print("Model is", self.model )
-        print("color is", self.color )
-        print("type is ", self.type) 
-        
+
+        print("Model is", self.model)
+        print("color is", self.color)
+        print("type is ", self.type)
+
+
 # both objects have different self which
 # contain their attributes
 audi = car("audi a4", "blue", "coupé")
 ferrari = car("ferrari 488", "green", "break")
- 
-audi.show()     # same output as car.show(audi)
+
+audi.show()  # same output as car.show(audi)
 ferrari.show()  # same output as car.show(ferrari)
- 
+
 # Behind the scene, in every instance method
 # call, python sends the instances also with
 # that method call like car.show(audi)
@@ -47,8 +50,9 @@ ferrari.show()  # same output as car.show(ferrari)
 
 # Self is always required as the first argument
 class check:
-	def __init__(self):
-		print("This is Constructor")
+    def __init__(self):
+        print("This is Constructor")
+
 
 object = check()
 print("Worked fine")
