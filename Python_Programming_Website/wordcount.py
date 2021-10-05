@@ -1,10 +1,7 @@
 # Word Count
 
 
-count = 0
 word = input("Entrez une phrase")
-for i in word:
-    if i == " ":
-         count = count + 1
+count = word.count(" ")
 print("le nombre de mots est : ", count + 1)
                  

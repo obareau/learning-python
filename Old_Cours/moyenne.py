@@ -1,7 +1,5 @@
 def find_average(values) -> float:
-    result = 0
-    for v in values:
-        result += v
+    result = sum(values)
     return result / len(values)
 
 
