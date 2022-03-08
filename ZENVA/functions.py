@@ -5,7 +5,7 @@
 # Et on peut récuprer leurs sorties sous forme de résultat
 # UNE FONCTION - UN BUT ET UN SEUL
 # On simplifie et si c'est complexe on split en fonctions plus petites
-
+# test
 position = 0
 # position est hors de ma fonction
 # move_player() # rien ne se passe vu que ma fonction n'est pas encore définie du coup le programme crash
